@@ -1,4 +1,7 @@
 name: Kernel Build Process
+env:
+  KSU_EXPECTED_SIZE: "0x4ac"
+  KSU_EXPECTED_HASH: "a40da80a59d170caa950cf15c18c454d47a39b26989d8b640ecd745ba71bf5dc"
 permissions:
   contents: read
   actions: write
