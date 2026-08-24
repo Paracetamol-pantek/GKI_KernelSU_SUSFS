@@ -1,7 +1,4 @@
 name: Kernel Build Process
-env:
-  KSU_EXPECTED_SIZE: "0x4ac"
-  KSU_EXPECTED_HASH: "a40da80a59d170caa950cf15c18c454d47a39b26989d8b640ecd745ba71bf5dc"
 permissions:
   contents: read
   actions: write
@@ -143,6 +140,8 @@ jobs:
         GIT_DATE=$(date -u -d @${SOURCE_DATE_EPOCH} '+%Y-%m-%dT%H:%M:%SZ')
         echo "GIT_COMMITTER_DATE=${GIT_DATE}" >> $GITHUB_ENV
         echo "GIT_AUTHOR_DATE=${GIT_DATE}" >> $GITHUB_ENV
+        echo "KSU_EXPECTED_SIZE=0x4ac" >> $GITHUB_ENV
+        echo "KSU_EXPECTED_HASH=a40da80a59d170caa950cf15c18c454d47a39b26989d8b640ecd745ba71bf5dc" >> $GITHUB_ENV
         echo "Build timestamp set to: $(date -u -d @${SOURCE_DATE_EPOCH} '+%Y-%m-%d %H:%M:%S UTC') (epoch: $SOURCE_DATE_EPOCH)"
 
     - name: Extract Sublevel and Set File Name
