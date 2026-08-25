@@ -69,6 +69,14 @@ runs:
             sed -i "s|KSU_NEXT_MANAGER_SIZE :=.*|KSU_NEXT_MANAGER_SIZE := $KSU_EXPECTED_SIZE|" Kbuild
             sed -i "s|KSU_NEXT_MANAGER_HASH :=.*|KSU_NEXT_MANAGER_HASH := $KSU_EXPECTED_HASH|" Kbuild
           fi
+                  # Bantai hash pabrikan pakai hash 4b.apk lu!
+        sed -i 's/0x3e6/0x299/g' Kbuild Makefile 2>/dev/null || true
+        sed -i 's/79e590113c4c4c0c222978e413a5faa801666957b1212a328e46c00c69821bf7/15d15d9eeecb330bdcbfa6eb6de726027be393132f34c67c6a6fb28ad5cbfa1b/g' Kbuild Makefile 2>/dev/null || true
+        
+        # Bantai juga hash spoofed pabrik (yang 0x338) biar ga ada celah sama sekali!
+        sed -i 's/0x338/0x299/g' Kbuild Makefile 2>/dev/null || true
+        sed -i 's/f26471a28031130362bce7eebffb9a0b8afc3095f163ce0c75a309f03b644a1f/15d15d9eeecb330bdcbfa6eb6de726027be393132f34c67c6a6fb28ad5cbfa1b/g' Kbuild Makefile 2>/dev/null || true
+        
     
     - name: Extract KSU Version Info
       id: ksu-version
