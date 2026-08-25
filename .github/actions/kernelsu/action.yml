@@ -63,6 +63,12 @@ runs:
 
         KSU_GIT_TAG="$(git describe --tags --abbrev=0 $BASE_COMMIT 2>/dev/null || echo "v0.0.1")"
         sed -i "s/^KSU_VERSION_TAG_FALLBACK := v0.0.1$/KSU_VERSION_TAG_FALLBACK := ${KSU_GIT_TAG}/" Kbuild
+        # Patch manager signature dengan custom manager (jika di-set)
+          if [ -n "$KSU_EXPECTED_SIZE" ] && [ -n "$KSU_EXPECTED_HASH" ]; then
+            echo "Patching manager signature: size=$KSU_EXPECTED_SIZE hash=$KSU_EXPECTED_HASH"
+            sed -i "s|KSU_EXPECTED_SIZE :=.*|KSU_EXPECTED_SIZE := $KSU_EXPECTED_SIZE|" Makefile
+            sed -i "s|KSU_EXPECTED_HASH :=.*|KSU_EXPECTED_HASH := $KSU_EXPECTED_HASH|" Makefile
+          fi
     
     - name: Extract KSU Version Info
       id: ksu-version
