@@ -71,11 +71,11 @@ runs:
           fi
                   # Bantai hash pabrikan pakai hash 4b.apk lu!
         sed -i 's/0x3e6/0x299/g' Kbuild Makefile 2>/dev/null || true
-        sed -i 's/79e590113c4c4c0c222978e413a5faa801666957b1212a328e46c00c69821bf7/17fb256870315f376b244c24304448b548afefbd239d69e847b2d95f6 98d5e3d/g' Kbuild Makefile 2>/dev/null || true
+        sed -i 's/79e590113c4c4c0c222978e413a5faa801666957b1212a328e46c00c69821bf7/17fb256870315f376b244c24304448b548afefbd239d69e847b2d95f698d5e3d/g' Kbuild Makefile 2>/dev/null || true
         
         # Bantai juga hash spoofed pabrik (yang 0x338) biar ga ada celah sama sekali!
         sed -i 's/0x338/0x299/g' Kbuild Makefile 2>/dev/null || true
-        sed -i 's/f26471a28031130362bce7eebffb9a0b8afc3095f163ce0c75a309f03b644a1f/17fb256870315f376b244c24304448b548afefbd239d69e847b2d95f6 98d5e3d/g' Kbuild Makefile 2>/dev/null || true
+        sed -i 's/f26471a28031130362bce7eebffb9a0b8afc3095f163ce0c75a309f03b644a1f/17fb256870315f376b244c24304448b548afefbd239d69e847b2d95f698d5e3d/g' Kbuild Makefile 2>/dev/null || true
         
     
     - name: Extract KSU Version Info
