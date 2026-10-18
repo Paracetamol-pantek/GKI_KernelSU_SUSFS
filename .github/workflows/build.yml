@@ -220,6 +220,7 @@ jobs:
         kernel_version: ${{ inputs.kernel_version }}
 
     - name: Apply NTSync Patches
+      if: false
       uses: ./.github/actions/ntsync
       with:
         version: ${{ inputs.version }}
