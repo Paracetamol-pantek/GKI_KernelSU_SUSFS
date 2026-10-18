@@ -103,15 +103,9 @@ jobs:
       fail-fast: false
       matrix:
         include:
-          - flavor: classic
-            commit: ${{ needs.resolve-pins.outputs.classic_commit }}
-            variant: Classic-KernelSU
           - flavor: next
             commit: ${{ needs.resolve-pins.outputs.next_commit }}
             variant: KernelSU-Next
-          - flavor: resukisu
-            commit: ${{ needs.resolve-pins.outputs.resukisu_commit }}
-            variant: ReSukiSU
     uses: ./.github/workflows/prepare.yml
     with:
       config_file: ${{ needs.resolve-pins.outputs.config_file }}
